@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Test</h1>
+    <input type="text" id="inputData">
+    <button id="send">click</button>
+    <br>
+    <p id="outputText">output</p>
+</body>
+<script src="main.js"></script>
+<script>
+    let inputData = document.getElementById("inputData");
+    const output = document.getElementById("outputText");
+    const button = document.getElementById("send");
+
+    button.addEventListener("click",()=>{
+        let obj={
+            prompt:inputData.value
+        };
+
+        fetch('/api',{
+            method:"POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify(obj)
+        })
+        .then(response => response.json())
+        .then(users => {
+            output.innerHTML = users;
+        });
+    });
+
+</script>
+</html>

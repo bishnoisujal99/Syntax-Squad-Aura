@@ -6,19 +6,17 @@
 
 body{
     background-color: #ffeac5;
-    width: 100%;
-    min-height: 100vh;
-    flex-direction:column ;
-    color: #fff;
+    color: #ffffff;
 }
 
 .wrapper{
+    height: 200px;
     width: 420px;
-    color: #fff;
+    color: #ffffff;
     border-radius: 10px;
-    padding: 30px 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 header{
@@ -37,6 +35,8 @@ header{
 .logo{
     cursor: pointer;
     float: left;
+    display: flex;
+    align-items: center;
 }
 
 nav{
@@ -58,55 +58,32 @@ nav a:hover{
     color: grey;
 }
 
-.wrapper h1 {
-    font-size: 36px;
-    text-align: center;
-}
-
-.wrapper .input-box {
-    width: 180%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 0 ;
-    margin-top: 200px;
-    margin-left: 150%;
-    color: #fff;
-    font-size: 15px;
-    border: 0;
-    outline: 0;
-    padding: 20px;
-    border-radius: 10px;
-    resize: none;
-    margin-bottom: 30px;
-}
-
-button{
+.generate-btn{
     width: 200px;
     height: 50px;
     border-radius: 25px;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
     color: white;
     font-size: 30px;
-    margin-left: 200%;
-    margin-bottom: 250px;
     background-color: #613f26;
-    box-shadow: 3px 3px;
 }
 
-.input-box input {
-    width: 250%;
-    height: 100%;
+.input-box{
+    width: 40vw;
+    height: 10vh;
     background: white;
     border: none;
     outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 40px;
     font-size: 16px;
     color: black;
-    padding: 20px 45px 20px 20px;
+    margin-right: 5rem;
 
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

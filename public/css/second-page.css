@@ -70,20 +70,21 @@ nav a:hover{
 }
 
 .input-box{
-    width: 40vw;
     height: 10vh;
     background: white;
-    border: none;
-    outline: none;
     border-radius: 40px;
     font-size: 16px;
     color: black;
     margin-right: 5rem;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:20px;
 }
 
 #container{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100vw;
 }

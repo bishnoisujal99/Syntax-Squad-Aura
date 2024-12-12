@@ -11,7 +11,6 @@
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "express": "^4.21.2",
-    "jsdom": "^25.0.1",
-    "tailwindcss": "^3.4.16"
+    "jsdom": "^25.0.1"
   }
 }

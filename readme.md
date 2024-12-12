@@ -35,7 +35,7 @@ University: SK Somaiya College, Somaiya Vidyavihar University
 Socials: [LinkedIn](https://www.linkedin.com/in/prem-gupta-616489335/) [GitHub](https://github.com/PremGupta06/)
 
 ## Dhwani Rajpurohit
-Role: Research
+Role: Back-End Developer & Research
 Education: First-Year| Bachelor’s of Computer Application
 University: SK Somaiya College, Somaiya Vidyavihar University
 Socials: [LinkedIn](https://www.linkedin.com/in/dhwani-rajpurohit-534314304/) [GitHub](https://github.com/dhwanidecoded/)

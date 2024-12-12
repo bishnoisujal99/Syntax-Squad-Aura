@@ -11,10 +11,10 @@
     <header>
         <a href="./index.html" class="logo"><img src="./images/logo.jpg" height="180px" width="180px"></a>
         <nav>
-            <a href="">Law Facts</a>
-            <a href="">Blog</a>
-            <a href="">About-us</a>
-            <a href="">Contact</a>
+            <a href="./law-facts.html">Law Facts</a>
+            <a href="./blog.html">Blog</a>
+            <a href="./about_us.html">About-us</a>
+            <a href="./contact_us.html">Contact</a>
             <a class="menu"></a>
         </nav>
     </header>
@@ -23,17 +23,45 @@
     <div id="container">
         <div class="wrapper">
             <div class="input-box" style="width:500px">
-                <input type="text" placeholder="Ask AI"
+                <input type="text" placeholder="Ask AI" id="inputData"
                 required style="font-size: 1.5rem; width: 30vw; border: none; outline: none; margin-left: 20px; margin-right: 20px;">
             </div>
             <div>
-                <button class="generate-btn">Generate</button>
+                <button class="generate-btn" onclick="run()">Generate</button>
             </div>
         </div>  
     </div>
+<<<<<<< HEAD
     <div style="width: 100vw;height: 3px;background-color: #6c4f31;"></div>
     <div style="display: flex;justify-content: center;align-items: center;">
         <p style="font-size: 1.7rem; color: black; padding: 1rem; color: black;" id="outputText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quis cupiditate nisi, dolor molestias sed. Optio obcaecati excepturi suscipit. Voluptatem nostrum id ratione libero, dignissimos ut provident modi vero nam magni natus quae accusantium voluptatibus eius cum voluptates dolorum, excepturi dolor non corrupti cupiditate quia. Ducimus dicta labore consectetur quod reprehenderit assumenda, repudiandae facere pariatur, ea tempora voluptate explicabo illo, perferendis eum quibusdam sequi eveniet. Maxime debitis maiores assumenda eos quibusdam dolor modi iure omnis saepe explicabo eligendi consequatur odio distinctio magnam similique cum, asperiores ad cumque nobis perferendis! Nisi reprehenderit eos aut impedit! Quas dignissimos nam odio eveniet ex.</p>
     </div>
+=======
+    <p style="font-size: 2rem; color: black;" id="outputText">output</p>
+>>>>>>> 2e3d78ed8dff62ed31cb995be7c4817afcb95c2b
 </body>
+<script>
+    let inputData = document.getElementById("inputData");
+    const output = document.getElementById("outputText");
+    const button = document.getElementById("send");
+
+    async function run() {
+        let obj={
+            prompt:inputData.value
+        };
+        console.log("I was clicked once");
+
+        fetch('/api',{
+            method:"POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify(obj)
+        })
+        .then(response => response.json())
+        .then(out => {
+            output.innerHTML = out;
+        });
+    }   
+</script>
 </html>

@@ -23,15 +23,15 @@
     <div id="container">
         <div class="wrapper">
             <div class="input-box" style="width:500px">
-                <input type="text" placeholder="Ask AI"
+                <input type="text" placeholder="Ask AI" id="inputData"
                 required style="font-size: 1.5rem; width: 30vw; border: none; outline: none; margin-left: 20px; margin-right: 20px;">
             </div>
             <div>
-                <button class="generate-btn">Generate</button>
+                <button class="generate-btn" onclick="run()">Generate</button>
             </div>
         </div>  
     </div>
-
+    <p style="font-size: 2rem; color: black;" id="outputText">output</p>
 
 </body>
 </html>

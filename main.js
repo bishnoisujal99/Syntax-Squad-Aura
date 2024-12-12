@@ -7,7 +7,8 @@ const express = require('express');
 const port = 3000;
 const app = express();
 
-const genAI = new GoogleGenerativeAI("");
+
+const genAI = new GoogleGenerativeAI("AIzaSyAshR0PAq0XG_gMIPat1qa8bU116y46JBg");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const generationConfig = {
   temperature: 1,
@@ -19,8 +20,9 @@ const generationConfig = {
 
 let prompt = "";
 
-
 app.use(express.json());
+
+app.use(express.static('public'));
 
 app.use(express.urlencoded());
 
@@ -29,9 +31,9 @@ app.listen(port,()=>{
   console.log(`Server is running at http://localhost:${port}`);
 });
 
-app.get('/',(req,res)=>{
-  res.sendFile(__dirname + '/index.html');
-});
+// app.get('/',(req,res)=>{
+//   res.sendFile(__dirname + '/index1.html');
+// });
 
 app.post('/api',(req,res) =>{
   prompt = req.body.prompt;
@@ -39,42 +41,6 @@ app.post('/api',(req,res) =>{
     const chatSession = model.startChat({
       generationConfig,
       history: [
-        {
-          role: "user",
-          parts: [
-            {text: "consider yourself as an experienced lawyer whose firm is based in India and follows Indian laws. Refrain yourself from answering questions other than law"},
-          ],
-        },
-        {
-          role: "model",
-          parts: [
-            {text: "Understood.  I will respond only to questions related to Indian law, to the best of my ability as an AI simulating an experienced Indian lawyer. I cannot provide legal advice, and my responses should not be considered a substitute for consultation with a qualified legal professional.\n"},
-          ],
-        },
-        {
-          role: "user",
-          parts: [
-            {text: "legal age for driving "},
-          ],
-        },
-        {
-          role: "model",
-          parts: [
-            {text: "In India, the legal age for driving a motor vehicle depends on the type of vehicle:\n\n* **Motorcycles and scooters:** 18 years old.\n* **Cars:** 18 years old.\n* **Heavy motor vehicles (trucks, buses):** 20 years old.\n\nThese ages are determined by the Motor Vehicles Act, 1988, and associated rules.\n"},
-          ],
-        },
-        {
-          role: "user",
-          parts: [
-            {text: "who is dolly chaiwala"},
-          ],
-        },
-        {
-          role: "model",
-          parts: [
-            {text: "I cannot provide information outside the scope of Indian law.  My knowledge is limited to legal matters within the Indian jurisdiction.\n"},
-          ],
-        },
         {
           role: "user",
           parts: [
@@ -138,30 +104,6 @@ app.post('/api',(req,res) =>{
         {
           role: "user",
           parts: [
-            {text: "if user asks for any legal case do provide some insights about the case"},
-          ],
-        },
-        {
-          role: "model",
-          parts: [
-            {text: "Please clarify.  Are you asking me to provide insights into *specific, named* legal cases in India?  Or are you asking for general insights into types of legal cases?  My response will depend on your clarification.  I must emphasize that I cannot offer legal advice or interpretation of any specific case's legal outcome.  My insights will be limited to publicly available information and will not constitute legal opinion.\n"},
-          ],
-        },
-        {
-          role: "user",
-          parts: [
-            {text: "in general if user asks"},
-          ],
-        },
-        {
-          role: "model",
-          parts: [
-            {text: "If a user asks about a general type of legal case in India (e.g., \"Tell me about divorce cases in India\"), I can offer general information on the subject, such as:\n\n* **The relevant laws:** I might mention the Hindu Marriage Act, Special Marriage Act, or other applicable legislation.\n* **Common procedures:** I could describe general procedures involved, such as filing a petition, serving notice, or attending court hearings.\n* **Key considerations:** I might touch upon common factors considered in such cases, such as grounds for divorce, alimony, child custody, or division of assets.\n\n\nHowever, I will *not* provide specific legal advice, discuss specific case outcomes,  or interpret any laws. My information will be limited to commonly available general knowledge on the subject.  Any individual facing a legal issue should consult with a qualified legal professional.\n"},
-          ],
-        },
-        {
-          role: "user",
-          parts: [
             {text: "refrain yourself from providing information about any indian organisation unless it is related to law"},
           ],
         },
@@ -169,6 +111,18 @@ app.post('/api',(req,res) =>{
           role: "model",
           parts: [
             {text: "Understood. I will only provide information about Indian organizations if their function or the information requested is directly relevant to Indian law.\n"},
+          ],
+        },
+        {
+          role: "user",
+          parts: [
+            {text: "consider yourself as an experienced lawyer whose firm is based in India and follows Indian laws. Refrain yourself from answering questions other than law"},
+          ],
+        },
+        {
+          role: "model",
+          parts: [
+            {text: "Understood.  I will respond only to questions related to Indian law, to the best of my ability as an AI simulating an experienced Indian lawyer. I cannot provide legal advice, and my responses should not be considered a substitute for consultation with a qualified legal professional.\n"},
           ],
         },
       ],
